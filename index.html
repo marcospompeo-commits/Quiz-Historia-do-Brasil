@@ -2,6 +2,14 @@
 <html lang="pt-BR"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Quiz História do Brasil</title>
+<meta name="theme-color" content="#10263a">
+<meta name="description" content="Teste seus conhecimentos sobre a História do Brasil em três fases interativas.">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="História do Brasil">
 <style>
 :root{--green:#16864c;--gold:#ffd43b;--navy:#10263a;--cream:#fff8e8}
 *{box-sizing:border-box}body{margin:0;padding:10px;background:linear-gradient(145deg,#0b3e68,#137a69 58%,#d9a342);font-family:system-ui,-apple-system,Arial,sans-serif;color:#102033}
@@ -79,6 +87,9 @@ h1{font-size:clamp(22px,3.8vw,32px);line-height:1.22;margin:22px 0 18px}
       </ul>
     </div>
     <button class="landing-play" id="playBtn" type="button">▶ JOGAR</button>
+    <p class="small" style="margin:16px auto 0;max-width:520px;line-height:1.55">
+      <strong>Instalar no iPhone:</strong> abra esta página no Safari, toque em Compartilhar e escolha “Adicionar à Tela de Início”.
+    </p>
   </section>
 </div>
 
@@ -259,4 +270,13 @@ $("helpBtn").addEventListener("click",()=>alert("Como jogar:\\n1. Escolha uma da
 document.querySelectorAll(".phase").forEach(b=>b.addEventListener("click",()=>{const n=Number(b.dataset.phase);if(phaseUnlocked[n]){phase=n;idx=0;lives=4;phaseCorrect=0;drawQuestions();render()}}));
 drawQuestions();render();
 $("playBtn").addEventListener("click",()=>{phase=0;idx=0;score=0;lives=4;phaseCorrect=0;gameOver=false;phaseUnlocked=[true,false,false];phaseResults=[null,null,null];drawQuestions();render();$("gameOverOverlay").classList.add("hidden");$("landingPage").classList.add("hidden")});
+</script>
+<script>
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js').catch((error) => {
+      console.warn('Não foi possível ativar o modo offline:', error);
+    });
+  });
+}
 </script></body></html>

@@ -1,0 +1,16 @@
+QUIZ HISTÓRIA DO BRASIL — PACOTE PWA
+
+Arquivos:
+- index.html: jogo original com metadados PWA e instrução de instalação no iPhone.
+- manifest.webmanifest: identificação e configurações do aplicativo.
+- service-worker.js: cache dos arquivos principais e fallback para abrir o jogo offline após a primeira visita.
+- icons/: ícones Android e iPhone.
+
+PUBLICAÇÃO
+Envie TODOS os arquivos e a pasta icons para a mesma pasta publicada pelo GitHub Pages, mantendo os nomes e a estrutura. O endereço deve continuar em HTTPS.
+
+INSTALAÇÃO NO IPHONE
+Abra o endereço no Safari > Compartilhar > Adicionar à Tela de Início > Adicionar. O Safari do iPhone não usa o botão de instalação automático do Chrome/Android.
+
+NOTA
+O modo offline só fica disponível depois que o jogo e seus arquivos forem carregados ao menos uma vez com internet. Esta preparação não publica automaticamente no GitHub.
